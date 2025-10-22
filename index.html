@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Khaki to Clarity | Post-Camp Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fb;
+      color: #222765;
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    nav {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #222765, #f29766);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    .logo-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #222765;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: #222765;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 0.5rem;
+    }
+    
+    .nav-links a:hover {
+      color: #f29766;
+    }
+    
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #222765;
+      cursor: pointer;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(rgba(34, 39, 101, 0.85), rgba(242, 151, 102, 0.85)),
+                  url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem;
+      position: relative;
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    header p {
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+    
+    /* Sections */
+    section {
+      padding: 3rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    h2 {
+      color: #222765;
+      border-left: 5px solid #f29766;
+      padding-left: 15px;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+    
+    .facilitator, .story, .contact-card, .account-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .facilitator:hover, .story:hover, .contact-card:hover, .account-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    
+    .facilitator img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      float: left;
+      margin-right: 2rem;
+      object-fit: cover;
+      border: 5px solid #f29766;
+    }
+    
+    .story h3 {
+      color: #f29766;
+      margin-bottom: 1rem;
+    }
+    
+    .story blockquote {
+      border-left: 3px solid #f29766;
+      padding-left: 1.5rem;
+      font-style: italic;
+      color: #555;
+      margin: 1rem 0;
+    }
+    
+    .button {
+      background: #f29766;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .button:hover {
+      background: #e87c42;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(242, 151, 102, 0.3);
+    }
+    
+    /* Media Section */
+    .media-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .media-card {
+      background: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .media-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .media-card h3 {
+      color: #222765;
+      margin-bottom: 1rem;
+    }
+    
+    .media-card img, .media-card video, .media-card audio {
+      width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+    
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #222765, #f29766);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .contact-info h4 {
+      color: #222765;
+      margin-bottom: 0.3rem;
+    }
+    
+    .contact-info p {
+      color: #666;
+    }
+    
+    /* Account Details Section */
+    .account-details {
+      background: linear-gradient(135deg, #222765, #3a4199);
+      color: white;
+      padding: 3rem 5%;
+      margin-top: 3rem;
+    }
+    
+    .account-details h2 {
+      color: white;
+      border-left-color: #f29766;
+    }
+    
+    .account-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .account-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .account-card h3 {
+      color: #f29766;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .account-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .account-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .account-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+    
+    .account-value {
+      color: white;
+      font-weight: 600;
+      text-align: right;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #222765;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu {
+        display: block;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .facilitator img {
+        float: none;
+        display: block;
+        margin: 0 auto 1.5rem;
+      }
+      
+      section {
+        padding: 2rem 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo-section">
+        <div class="logo">BSC</div>
+        <div class="logo-text">Business Street Corner</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#facilitator">Facilitator</a></li>
+        <li><a href="#stories">Success Stories</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>From Khaki to Clarity</h1>
+    <p>Post-Camp Training on Self-Development & Communication</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About the Program</h2>
+    <p>The <strong>From Khaki to Clarity</strong> program by <strong>Business Street Corner</strong> in partnership with <strong>SAED NYSC Katsina</strong> is a 3-month virtual training designed to help corps members build confidence, develop emotional intelligence, and master effective communication. Each session blends personal growth, leadership, and modern communication strategies, including the use of generative AI tools.</p>
+  </section>
+
+  <!-- Facilitator Section -->
+  <section id="facilitator">
+    <h2>Meet the Facilitator</h2>
+    <div class="facilitator">
+      <img src="images/EMMA.jpg" alt="Facilitator Photo">
+      <div>
+        <h3>Mr. Emmanuel Akaluese</h3>
+        <p><strong>Mr. Emmanuel Akaluese</strong> is a leadership coach, accountant, and communications trainer passionate about helping young people discover purpose and articulate their potential. As the founder of <strong>Business Street Corner</strong>, he has trained hundreds of corps members and youth leaders across Nigeria in self-awareness, professional communication, and personal growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section id="stories">
+    <h2>Success Stories – From Camp to Confidence</h2>
+
+    <div class="story">
+      <h3>1. Abubakar Idris — KT/25B/2060</h3>
+      <blockquote>"This training helped me see people in a more positive light and improved how I express myself. I now speak with confidence and understand emotional intelligence better."</blockquote>
+      <p><em>(Self-Development & Communication Class, Batch B Stream II)</em></p>
+    </div>
+
+    <div class="story">
+      <h3>2. Aisha Awal Ibrahim — KT/25B/2042</h3>
+      <blockquote>"Before this session, I struggled with self-confidence. Through the group exercises and guidance from Mr. Emmanuel, I now communicate better and appreciate individual differences."</blockquote>
+      <p><em>(Participant, Communication & Growth Track)</em></p>
+    </div>
+
+    <div class="story">
+      <h3>3. Ahaziah Ahijo — KT/25B/1462</h3>
+      <blockquote>"I learned to manage my emotions, build confidence, and see myself as someone who can lead and inspire others. It changed how I view myself and my future."</blockquote>
+      <p><em>(Graduate, Self-Awareness & Leadership Module)</em></p>
+    </div>
+  </section>
+
+  <!-- Media Library -->
+  <section id="media">
+    <h2>Media Library</h2>
+    <div class="media-section">
+      <div class="media-card">
+        <h3>Self-Development Videos</h3>
+        <video controls poster="Coming Soon">
+          <source src="Videos/VID_20251003_100351.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+      </div>
+      <div class="media-card">
+        <h3>Communication Videos</h3>
+        <video controls poster="Coming Soon">
+          <source src="Videos/VID_20251002_131355.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+      </div>
+      <div class="media-card">
+        <h3>Self-Development Audio</h3>
+        <audio controls>
+          <source src="selfdev-audio.mp3" type="audio/mpeg">
+          Your browser does not support audio.
+        </audio>
+      </div>
+      <div class="media-card">
+        <h3>Communication Audio</h3>
+        <audio controls>
+          <source src="comm-audio.mp3" type="audio/mpeg">
+          Your browser does not support audio.
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book Library -->
+  <section>
+    <h2>Book Library</h2>
+    <div class="media-section">
+        <div class="media-card">
+            <h3>Self-Development Books</h3>
+            <img src="images/HTSWSL.jpeg" alt="Self Development Book">
+            <p><a href="https://drive.google.com/file/d/1OWhP8GUi8psMWLD9SsS_EnohtOp-cySX/view?usp=drive_link" class="button">Download Book</a></p>
+        </div>
+      
+        <div class="media-card">
+            <h3>Communication Books</h3>
+            <img src="images/SLC.jpg" alt="Communication Book">
+            <p><a href="https://drive.google.com/file/d/1MpJdUZ6nCSpDXTIwULxMVoUCV7UIccKH/view?usp=drive_link" class="button">Download Book</a></p>
+        </div>
+        
+    </div>
+  </section>
+
+  <!-- Program Resources -->
+  <section id="resources">
+    <h2>Program Resources</h2>
+    <p>Download the full 3-month curriculum and register to join the next Post-Camp Training Cohort.</p>
+    <a href="https://docs.google.com/document/d/12c8edgkJ1dQS7yjyMoHtK4GxIOIYKcwynWfVu0ZZRYU/edit?tab=t.0#heading=h.lr5jz8lxvrow" class="button">📘 View Curriculum</a>
+    <a href="https://forms.gle/fZcBQhXiVNUQvKZV7" class="button">📝 Enroll Now</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-info">
+            <h4>Email</h4>
+            <p>businessstreetcorner@gmail.com</p>
+            <p>justiceakaluese@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <h4>Phone</h4>
+            <p>+2348148047971</p>
+            <p>+2349133799268</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <h4>Office Address</h4>
+            <p>Business Street Corner</p>
+            <p>Katsina State, Nigeria</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-info">
+            <h4>Social Media</h4>
+            <p>@businessstreetcorner</p>
+            <p>Facebook | Twitter | Instagram</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Account Details Section -->
+  <div class="account-details">
+    <section>
+      <h2>Account Details for Payment</h2>
+      <p style="color: rgba(255,255,255,0.9); margin-bottom: 2rem;">Support the program or make payments using the account details below:</p>
+      
+      <div class="account-grid">
+        <div class="account-card">
+          <h3>Primary Account</h3>
+          <div class="account-info">
+            <div class="account-row">
+              <span class="account-label">Bank Name:</span>
+              <span class="account-value">Zenith Bank</span>
+            </div>
+            <div class="account-row">
+              <span class="account-label">Account Name:</span>
+              <span class="account-value">Emmanuel Akaluese</span>
+            </div>
+            <div class="account-row">
+              <span class="account-label">Account Number:</span>
+              <span class="account-value">2087633319</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="account-card">
+          <h3>Alternative Account</h3>
+          <div class="account-info">
+            <div class="account-row">
+              <span class="account-label">Bank Name:</span>
+              <span class="account-value">WEMA Bank</span>
+            </div>
+            <div class="account-row">
+              <span class="account-label">Account Name:</span>
+              <span class="account-value">Emmanuel Akaluese</span>
+            </div>
+            <div class="account-row">
+              <span class="account-label">Account Number:</span>
+              <span class="account-value">7810289931</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p style="color: rgba(255,255,255,0.8); margin-top: 2rem; text-align: center; font-size: 0.95rem;">
+        After payment, please send confirmation to businessstreetcorner@gmail.com with your name and course enrolled.
+      </p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Business Street Corner | Launching Careers, Creating Futures</p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">In Partnership with SAED NYSC Katsina</p>
+  </footer>
+</body>
+</html>
